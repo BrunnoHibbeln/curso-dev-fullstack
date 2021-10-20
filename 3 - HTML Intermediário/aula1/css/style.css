@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.header {
+    background-color: rgb(214, 180, 180);
+    color: white;
+    font-family: cursive;
+    font-size: 30px;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.container {
+    display: flex;
+}
+
+.navbar {
+    width: 30%;
+    background-color: rgba(214, 180, 180, 0.712);
+    text-align: center;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.content {
+    width: 70%;
+}
+
+.footer {
+    background-color: rgb(214, 180, 180);
+    color: white;
+    text-align: center;
+    padding: 20px 0px;
+}
