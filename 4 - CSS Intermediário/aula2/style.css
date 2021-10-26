@@ -1,0 +1,24 @@
+h1 {
+    text-shadow: 2px 2px 30px red;
+}
+
+p {
+    color: rgb(47, 78, 255);
+    text-align: left; /* Alinhamento do texto */
+    font-size: 20px; /* Tamanho do texto */
+    font-weight: bold; /* Selecionar variantes do texto, no caso tornar ele negrido */
+    font-style: italic; /* Estilo padrão do texto, no caso tornar ele italico */
+    
+    /* O navegador exibe uma fonte em versalete. (O versalete trata-se de um formato que faz com que os caracteres em letras minúsculas apareçam como letras maiúsculas em um tamanho de fonte reduzido).
+    */
+    font-variant: small-caps;
+    text-transform: capitalize; /* Tornar o texto  em letras maiúsculas ou minúsculas */
+    text-indent: 50px; /* Pequeno recúo do parágrafo */
+    word-spacing: 10px; /* Espaço entre as palavras */
+    line-height: 50px; /* Altura entre as linhas */
+}
+
+a {
+    text-decoration: none; /* Decoração do texto */
+    letter-spacing: 10px; /* Espaço entre as letras */
+}
