@@ -1,0 +1,33 @@
+.red {
+    color: red;
+}
+
+.border {
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+}
+
+.margin {
+    margin: 100px;
+}
+
+h1, h2, h3 {
+    color: blue;
+}
+
+/* Para estilizar somente os dois primeiros parágrafos, que são filhos diretos da div, devemos usar o sinal > */
+.exemplo2 > p {
+
+    color: chartreuse;
+}
+
+/* Para selecionar o primeiro elemento irmão após a tag, devemos usar o + */
+.exemplo3 + p {
+    color: red;
+}
+
+/* Para selecionar todos os elementos irmãos, devemos usar o ~ */
+.exemplo4 ~ p {
+    color: greenyellow;
+}
