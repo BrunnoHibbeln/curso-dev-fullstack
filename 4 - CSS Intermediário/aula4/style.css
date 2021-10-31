@@ -1,15 +1,8 @@
 
-/*  Devemos ficar atentos as propriedades padrões das tags.
-    Por exemplo, a tag <div> tem a propriedade "display: block;" por padrão, o que quer dizer que ela ocupará todo o espaço da tela, mesmo que o conteúdo dentro dela não seja suficiente para preencher.
-
-    Já a tag <a> vem por padrão "display: inline;" e o espaço que ela ocupará vai depender do conteúdo que há dentro dela.
+/*  "display:none;" esconde um determinado elemento.
+    "visibility: hidden;" somente deixa o elemento invisivel.
+    "opacity: 1;" podemos mexer na transparência do elemento, os valores vão de 0 à 1.
 */
-
-/* a {
-    width: 150px;
-    height: 150px;
-    display: inline-block;
-} */
 
 ul {
     background-color: rgb(170, 162, 162);
