@@ -1,0 +1,57 @@
+
+/* Aqui estamos estilizando o link */
+a {
+    color: red;
+}
+
+/* Aqui estamos usando a pseudo-classe "hover" que ocorre ao passar o ponteiro do mouse em cima do elemento em questão. */
+a:hover {
+    color: green;
+    font-weight: bold;
+}
+
+/* É usado especificamente em links, nesse caso quando o usuário já visitou o endereço */
+a:visited {
+    color: rgb(255, 0, 0);
+}
+
+/* Também usado somente em links, quando o usuário está clicando no link */
+a:active {
+    color: coral;
+    font-size: 30px;
+}
+
+.caixa {
+    width: 150px;
+    height: 150px;
+    background-color: black;
+}
+
+.caixa:hover {
+    background-color: blue;
+}
+
+/* O "display: none;" está basicamente escondendo o elemento */
+.caixa {
+    display: none;
+}
+
+/* Quando o ponteiro do mouse passar pelo <a> a .caixa irá aparecer */
+a:hover + .caixa {
+    display: block;
+}
+
+/* Aqui estamos selecionado somente o primeiro <li> da lista */
+ul li:first-child {
+    color: crimson;
+}
+
+/* Aqui estamos selecionado somente o ultimo <li> da lista */
+ul li:last-child {
+    color: darkgoldenrod;
+}
+
+/* Com essa pseudo-classe podemos selecionar especificamente qualquer elemento, nesse caso o terceiro elemento. */
+ul li:nth-child(3) {
+    color: rgb(255, 0, 255);
+}
