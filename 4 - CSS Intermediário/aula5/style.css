@@ -1,0 +1,19 @@
+
+/* Quando um conteúdo dentro de um elemento "estoura" para fora, é chamado de overflow.  */
+div {
+    width: 400px;
+    height: 300px;
+    background-color: honeydew;
+
+    /* 
+    Irá esconder todo o conteúdo que estourar para fora
+    overflow: hidden;
+    */
+
+    overflow: scroll;
+
+    /* Para esconder a barra de rolagem horizontal */
+    overflow-x: hidden;
+
+    /* Ou podemos simplesmente colocar "overflow: auto" e ele irá fazer o processo automaticamente, caso o conteúdo dentro do elemento seja variável. */
+}
