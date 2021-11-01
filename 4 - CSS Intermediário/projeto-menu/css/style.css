@@ -53,26 +53,36 @@ ul {
     text-decoration: none;
     color: white;
     font-size: 14px;
+    display: block;
 }
 
-.menu li a:hover  {
+.menu li:hover  {
     background-color: blueviolet;
 }
 
-.menu li:hover .submenu {
+.menu > li:hover > .submenu, .submenu > li:hover > .submenu {
     display: block;
 }
 
 .submenu {
     display: none;
     position: absolute;
-    top: 34px;
+    top: 50px;
     left: 0;
     background-color: blueviolet;
-    width: 100%;
+    min-width: 100%;
     text-align: center;
 }
 
+.submenu li:hover {
+    background-color: rgb(102, 32, 168);
+}
+
 .submenu li {
-    padding: 15px 0px;
+    position: relative;
+}
+
+.submenu li .submenu {
+    top: 0;
+    left: 100%;
 }
