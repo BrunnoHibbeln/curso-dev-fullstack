@@ -1,0 +1,51 @@
+/* Usamos os pseudo-elementos para alterar partes especificas de um elemento. */
+
+/* Podemos mudar a cor de quando selecionamos um texto com o mouse */
+::selection {
+    color: red;
+    background:rgb(131, 15, 15);
+}
+
+/* Aqui estamos estilizando um <p> mudando somente a cor da primeira linha */
+p::first-line {
+    color: blue;
+}
+
+/* Estilizar somente a primeira letra */
+p::first-letter {
+    color: red;
+    font-size: 40px;
+}
+
+/*
+    Aqui estamos usando o pseudo-elemento "before" e com ele podemos manipular/adicionar coisas antes do elemento em questão. Nesse caso estamos colocando uma imagem.
+*/
+
+h1::before {
+    /* Selecionamos a imagem */
+    background: url('morty.png');
+
+    /* Definimos para tomar o tamando total, que no caso é de 50px */
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+
+    /* Definimos "inline-block" para que o <h1> e a imagem fiquem na mesma linha */
+    display: inline-block;
+
+    /* Mesmo que não iremos colocar nada no "content" é obrigatório coloca-lo ao utilizar o "before", mesmo que com aspas vazias. */
+    content: "";
+}
+
+/* 
+    Também temos o pseudo-elemento "after" que se comporta exatamente como o "before"
+*/
+
+h1::after {
+    background: url('morty.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    content: "";
+}
