@@ -6,6 +6,7 @@
 
 body {
     background-color: rgb(238, 235, 235);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .header {
@@ -19,6 +20,59 @@ body {
     padding: 0px 20px;
 }
 
-h1 {
+.logo {
     color: white;
+    letter-spacing: -3px;
+    word-spacing: -5px;
+    text-transform: lowercase;
+}
+
+.logo span:first-child {
+    color: blueviolet;
+}
+
+.logo span:last-child {
+    font-size: 12px;
+    letter-spacing: normal;
+}
+
+ul {
+    list-style: none;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu li a {
+    padding: 17px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.menu li a:hover  {
+    background-color: blueviolet;
+}
+
+.menu li:hover .submenu {
+    display: block;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 34px;
+    left: 0;
+    background-color: blueviolet;
+    width: 100%;
+    text-align: center;
+}
+
+.submenu li {
+    padding: 15px 0px;
 }
