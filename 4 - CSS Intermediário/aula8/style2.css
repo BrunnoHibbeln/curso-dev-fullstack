@@ -1,0 +1,21 @@
+.conteudo {
+
+    /* Definimos esse "position" para que outros elementos "absulutes" ou dentro dele se posicionem em relação a ele */
+    position: relative;
+    height: 500px;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.quadrado {
+
+    /* O "position: absolute;" irá sempre se posicionar em relação ao primeiro elemento pai com "position: relative;" que encontrar. Como padrão, uma <div> não vem com essa característica, por isso devemos adicionar isso na <div> */
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}

@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estudando os tipos de position */
+
+/* O "position: fixed;" deixa o elemento totalmente fixo no lugar em que for colocado, mesmo que como no exemplo abaixo, haja conteúdo suficiente para uma barra de rolagem. */
+.quadrado {
+    position: fixed;
+
+    /* O valor desse parâmetro define a distância do objeto em relação ao topo da página */
+    top: 50px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.circulo {
+
+    /* O "position: absolute;" deixa o elemento totalmente parado no lugar em que for colocado */
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border-radius: 50px;
+    top: 100px;
+    left: 100px;
+    color: white;
+    text-align: center;
+    font-size: 13px;
+}
+
+p {
+    margin: 50px;
+    width: 300px;
+}
