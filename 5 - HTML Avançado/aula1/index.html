@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+
+    <!-- A "action" nós definimos para onde o <form> irá, seja um servidor ou um arquivo HTML por exemplo. -->
+    <form action="salvar.html">
+        <!-- Campo de texto simples -->
+        <input type="text" placeholder="Digite seu nome">
+
+        <!-- Campo de texto destinado ao email. Dessa forma, ao entrar pelo smartphone, ele irá facilitar o acesso ao "@" -->
+        <input type="email" placeholder="Digite seu Email">
+
+        <!-- Campo de texto destinado à senhas, irá ocultar o texto -->
+        <input type="password" placeholder="Digite sua senha">
+
+        <!-- Aqui temos o <input> de "button", porém desde o HTML5 temos a tag <button> para tornar o código mais semântico -->
+
+            <!-- Antigo -->
+        <input type="button" value="Enviar">
+
+            <!-- Novo -->
+        <button>Enviar</button>
+    </form>
+    
+</body>
+</html>
