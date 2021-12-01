@@ -1,0 +1,30 @@
+
+/* Para criar variáveis no CSS */
+:root {
+
+    /* Cor principal do site */
+    --color-primary: rgb(30, 49, 214);
+
+    /* Cor segundária do site */
+    --color-secondary: rgb(224, 99, 26);
+
+    /* Valor padrão de espaçamento */
+    --spacing: 16px;
+}
+
+h1 {
+    color: var(--color-primary);
+}
+
+h2 {
+    color: var(--color-secondary);
+}
+
+p {
+    color: var(--color-primary);
+}
+
+button {
+    background-color: var(--color-primary);
+    color: white;
+}
