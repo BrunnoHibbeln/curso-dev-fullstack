@@ -1,0 +1,33 @@
+body {
+    margin: 100px;
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    transition-duration: 1000ms;
+}
+
+.box:hover {
+    width: 500px;
+    background-color: red;
+
+/* 
+    https://www.w3schools.com/css/css3_2dtransforms.asp
+
+    transform: translate(50px, 100px);
+
+    transform: rotate(300deg);
+
+    transform: scale(2, 3);
+    transform: scaleX(2);
+    transform: scaleY(3);
+
+    transform: skew(20deg, 10deg);
+    transform: skewX(20deg);
+    transform: skewY(20deg);
+    
+    transform: matrix(1, -0.3, 0, 1, 0, 0);
+     */
+}
