@@ -17,10 +17,10 @@ body {
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 
     /* Adicionar um delay na transição, para começar e terminar */
-    transition-delay: 500ms;
+    transition-delay: 1ms;
 
     /* Shorthand do transition
-    transition: width 500ms ease-in 200ms; 
+    transition: width 500ms ease-in-out 200ms; 
     */
 }
 
