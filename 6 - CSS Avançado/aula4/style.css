@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+
+    /* Aqui podemos utilizar a unidade de medida Viewport width(vw) e height(vh) */
+
+    width: 100vw;
+    height: 96vh;
+    background-color: rgb(62, 31, 177);
+}
+
+.box2 {
+
+    width: 100vw;
+    height: 96vh;
+    background-color: rgb(0, 0, 0);
+}
+
+/* Somente utilizando essa unidade de medida podemos criar as sessões presentes em vários sites */

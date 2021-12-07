@@ -1,0 +1,30 @@
+body {
+    margin: 100px;
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+    background-color: black;
+
+    /* É uma boa pratica nós definirmos o valor da transição em (ms) sendo que no JavaScript só é possivel trabalhar com esse tipo de medida */
+    transition-duration: 500ms;
+
+    /* Aqui podemos definir qual parte do elemento será afetado com a transição, como o background-color ou o width. No caso estamos selecionando todas*/
+    transition-property: all;
+
+    /* Se trata basicamente da velocidade em que a transição começa e termina */
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    /* Adicionar um delay na transição, para começar e terminar */
+    transition-delay: 500ms;
+
+    /* Shorthand do transition
+    transition: width 500ms ease-in 200ms; 
+    */
+}
+
+.box:hover {
+    width: 500px;
+    background-color: red;
+}
