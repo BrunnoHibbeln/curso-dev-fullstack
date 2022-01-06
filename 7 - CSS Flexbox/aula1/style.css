@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+
+    /* Direção em que os items se alinharão */
+    flex-direction: row;
+
+    /* Pula os items para uma outra linha caso não haja espaço na tela de celular por exemplo */
+    flex-wrap: wrap;
+
+    /* Shorthand de "flex-direction" e "flex-wrap" */
+    flex-flow: row wrap;
+
+    background-color: silver;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.box {
+    width: 200px;
+    height: 100px;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
