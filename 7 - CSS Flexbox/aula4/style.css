@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+
+    /* Direção em que os items se alinharão */
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    height: 600px;
+    background-color: silver;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.box {
+    width: 100px;
+    height: 50px;
+}
+
+.red {
+    order: 3;
+
+    /* Alinhamento somente do item da classe "red" */
+    align-self: center;
+    background-color: red;
+}
+
+.blue {
+    order: 4;
+    align-self: flex-end;
+
+    /* O quanto o item vai "crescer" */
+    flex-grow: 2;
+    background-color: blue;
+}
+
+.yellow {
+    order: 2;
+    align-self: center;
+    background-color: yellow;
+}
+
+.green {
+    order: 1;
+    align-self: flex-start;
+    flex-grow: 3;
+    background-color: green;
+}
