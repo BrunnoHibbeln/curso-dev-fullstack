@@ -12,7 +12,14 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+/*
+************************************
+                HOME
+************************************
+*/
+
 .home {
+    position: relative;
     background-size: cover;
     background-image: url(../images/bg-home.jpg);
 
@@ -36,7 +43,8 @@ body {
 .home .header .nav ul li {
     display: flex;
     align-items: center;
-    margin: 0 10px;
+    justify-content: center;
+    width: 150px;
 }
 
 .home .header .nav ul li a{
@@ -55,4 +63,42 @@ body {
 
 .home .header .nav ul li .logo {
     padding: 30px 0;
+}
+
+/*
+************************************
+            HOME - BANNER
+************************************
+*/
+
+.home .banner {
+
+    /* O elemento pai deve estar com "position: relative; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    /* Altura e largura exata do banner */
+    height: 270px;
+    width: 770px;
+
+    /* Colocamos a metade dos valores acima para que os elementos se alinhem corretamente */
+    margin-left: -385px;
+    margin-top: -75px; /* Aqui o valor não é a metade, mas está exatamente onde nós queremos que fique posicionado */
+    color: white;
+    text-align: center;
+}
+
+.home .banner span {
+    display: block;
+}
+
+.home .banner .slogan1 {
+    color: var(--color-primary);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.home .banner h1 {
+    font-size: 120px;
 }
