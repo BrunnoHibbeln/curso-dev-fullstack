@@ -12,6 +12,11 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.container {
+    width: 1170px;
+    margin: 0 auto;
+}
+
 /*
 ************************************
                 HOME
@@ -101,4 +106,91 @@ body {
 
 .home .banner h1 {
     font-size: 120px;
+}
+
+/*
+************************************
+                ABOUT
+************************************
+*/
+
+.about {
+    height: 100vh;
+    background-color: var(--color-primary);
+}
+
+.about .container {
+    display: flex;
+}
+
+.about .timing {
+    width: 33%;
+    padding: 20px;
+    background-image: url(../images/brush-big.jpg);
+    background-size: cover;
+}
+
+.about .timing .overlay {
+    text-align: center;
+    padding: 35px 20px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.about .timing h3 {
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-primary);
+
+    /* Faz com que o tamanho do h3 seja do tamanho do conteúdo */
+    width: fit-content;
+    margin: 0 auto 30px auto;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.about .timing .text h4 {
+    color: rgb(131, 131, 131);
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.about .timing .text {
+    margin: 10px 0;
+}
+
+.about .timing .text:after {
+    content: '•';
+    display: block;
+    color: white;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+/* A pseudoclasse ":last-of-type" irá o último item do text e aplicará depois dele com o ":after" */
+.about .timing .text:last-of-type:after {
+    content: '|';
+}
+
+.about .timing span {
+    color: white;
+    font-size: 15px;
+    display: block;
+}
+
+.about .timing .overlay .scissors {
+    height: 60px;
+    width: 50px;
+}
+
+.about .timing .overlay .map {
+    height: 30px;
+    width: 20px;
+}
+
+.about .timing .overlay .phone {
+    height: 25px;
+    width: 30px;
+}
+
+.about .experience {
+    width: 66%;
 }
