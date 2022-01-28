@@ -31,6 +31,7 @@ body {
     background-image: url(../images/bg-home.jpg);
 
     height: 100vh; /* "viewport height" Área visível do navegador */
+    background-attachment: fixed;
 }
 
 .home .header {
@@ -442,4 +443,18 @@ body {
 
 .location .map iframe {
     width: 100%;
+}
+
+/*
+************************************
+              FOOTER
+************************************
+*/
+
+.footer {
+    background-color: #191919;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    font-size: 12px;
 }
