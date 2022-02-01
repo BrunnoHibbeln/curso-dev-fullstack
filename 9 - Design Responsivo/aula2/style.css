@@ -1,0 +1,23 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+/* Media queries servem para aplicar mudanças no css. Nesse caso, se a largura for entre 0 à 400px irá aplicar essa regra. */
+@media (max-width: 400px) {
+    body {
+        background-color: red;
+        color: blueviolet;
+    }
+
+    p {
+        font-size: 40px;
+    }
+}
+
+/* Usamos o operador "and" quando precisamos aplicar uma mudança entre dois valores */
+@media (min-width: 400px) and (max-width: 600px) {
+    body {
+        background-color: coral;
+    }
+}
