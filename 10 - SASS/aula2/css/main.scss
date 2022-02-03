@@ -1,0 +1,81 @@
+
+/* Para criar um arquivo "partial" que não será compilado pelo CSS, colocamos no inicio do nome do arquivo "_" para que o arquivo somente seja compilado quando importado. */
+
+@import 'variables';
+@import 'base';
+@import 'mixins';
+@import 'extends';
+
+.container {
+    display: flex;
+    justify-content: space-around;
+
+    .box {
+        width: 30%;
+        background-color: white;
+        color: $color-primary;
+        border-radius: 8px;
+        padding: 20px;
+
+        /* Quando temos um elemento irmão, devemos adicionar um "&" antes de referencia-lo */
+
+        &.active {
+            background-color: $color-secondary;
+        }
+
+        h2 {
+            /* É possível aplicar estruturas hierarquicas também nos valores das propriedades */
+
+            font: {
+                family: $font-secondary;
+                size: 22px;
+                weight: 500;
+            }
+            margin: {
+                top: 10px;
+                left: 20px;
+                right: 30px;
+                bottom: 22px;
+            }
+        }
+
+        p {
+            font-size: 18px;
+
+            &.hidden {
+                display: none;
+            }
+        }
+
+        ul {
+            @include reset-list()
+        }
+
+        a {
+            color: blueviolet;
+
+            /* Para usar o "hover" devemos também colocar o "&" antes */
+
+            &:hover {
+                color: rgb(60, 13, 104);
+
+                & + p.hidden {
+                    display: block;
+                }
+            }
+        }
+
+        .success {
+            @extend %box-alert;
+            @include bg-effect(success)
+        }
+        .danger {
+            @extend %box-alert;
+            @include bg-effect(danger)
+        }
+        .warning {
+            @extend %box-alert;
+            @include bg-effect(warning)
+        }
+    }
+}

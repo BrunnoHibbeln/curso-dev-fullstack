@@ -1,0 +1,7 @@
+/* No SASS ao criar variáveis não é necessário utilizar o ":root {}" nem utilizar o "var()" para referênciar a variável. E claro, ao invés de usar o "--" no css puro, no SASS usamos o "$". */
+
+$color-primary: black;
+$color-secondary: red;
+
+$font-primary: 'Arial' sans-serif;
+$font-secondary: 'Verdana' sans-serif;

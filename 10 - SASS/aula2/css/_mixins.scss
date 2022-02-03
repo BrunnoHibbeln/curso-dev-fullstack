@@ -1,0 +1,30 @@
+/* O "mixin" se comporta como uma função, dessa forma podemos passar parâmetros dentro dele. Os valores colocados após o ":" seria o valor padrão, caso não passe nenhum valor ao chamar o "mixin" */
+
+@mixin reset-list($margin: 0, $padding: 0, $style: none) {
+    margin: $margin;
+    padding: $padding;
+    list-style: $style;
+}
+
+/* Ao chamar o "mixin" ficaria da seguinte forma 
+
+    @include reset-list(100px, 200px, square )
+
+*/
+
+@mixin bg-effect ($effect) {
+
+    @if $effect == success {
+        background-color: green;
+    }
+    @else if $effect == danger {
+        background-color: red;
+    }
+    @else if $effect == warning {
+        background-color: yellow;
+        color: black;
+    }
+    @else {
+        background-color: white;
+    }
+}

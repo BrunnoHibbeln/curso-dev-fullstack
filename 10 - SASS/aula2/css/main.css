@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/* Para criar um arquivo "partial" que não será compilado pelo CSS, colocamos no inicio do nome do arquivo "_" para que o arquivo somente seja compilado quando importado. */
+/* No SASS ao criar variáveis não é necessário utilizar o ":root {}" nem utilizar o "var()" para referênciar a variável. E claro, ao invés de usar o "--" no css puro, no SASS usamos o "$". */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  font-family: "Arial" sans-serif;
+}
+
+/* O "mixin" se comporta como uma função, dessa forma podemos passar parâmetros dentro dele. Os valores colocados após o ":" seria o valor padrão, caso não passe nenhum valor ao chamar o "mixin" */
+/* Ao chamar o "mixin" ficaria da seguinte forma 
+
+    @include reset-list(100px, 200px, square )
+
+*/
+.container .box .warning, .container .box .danger, .container .box .success {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 1px 1px 2px black;
+  color: white;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+.container .box {
+  width: 30%;
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  padding: 20px;
+  /* Quando temos um elemento irmão, devemos adicionar um "&" antes de referencia-lo */
+}
+.container .box.active {
+  background-color: red;
+}
+.container .box h2 {
+  /* É possível aplicar estruturas hierarquicas também nos valores das propriedades */
+  font-family: "Verdana" sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 30px;
+  margin-bottom: 22px;
+}
+.container .box p {
+  font-size: 18px;
+}
+.container .box p.hidden {
+  display: none;
+}
+.container .box ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.container .box a {
+  color: blueviolet;
+  /* Para usar o "hover" devemos também colocar o "&" antes */
+}
+.container .box a:hover {
+  color: #3c0d68;
+}
+.container .box a:hover + p.hidden {
+  display: block;
+}
+.container .box .success {
+  background-color: green;
+}
+.container .box .danger {
+  background-color: red;
+}
+.container .box .warning {
+  background-color: yellow;
+  color: black;
+}/*# sourceMappingURL=main.css.map */
