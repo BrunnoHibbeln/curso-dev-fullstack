@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Aqui estamos adicionando um evento no botão que ao clicar, altera a imagem da lampada apagada para a lampada acesa, simplesmente alterando o "src" do "<img>" -->
+
+    <button onclick="document.querySelector('#lampada').src = 'image/lampada_ligada.gif'">Acender</button>
+
+    <img id="lampada" src="image/lampada_desligada.gif" alt="">
+
+    <button onclick="document.querySelector('#lampada').src = 'image/lampada_desligada.gif'">Apagar</button>
+    
+</body>
+</html>
