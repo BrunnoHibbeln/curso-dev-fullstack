@@ -19,7 +19,7 @@ body {
 
 .todolist {
     width: 100%;
-    max-width: 600px
+    max-width: 600px;
 }
 
 .todolist header {
