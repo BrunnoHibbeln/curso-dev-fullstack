@@ -21,6 +21,7 @@ const Main = {
         this.$checkButtons = document.querySelectorAll('.check')
         this.$inputTask = document.querySelector('#inputTask')
         this.$list = document.querySelector('#list')
+        this.$removeButtons = document.querySelectorAll('.remove')
     },
 
     // Função referenciar os eventos
@@ -35,6 +36,10 @@ const Main = {
 
         // Colocamos o '.bind(this)' no final para que dentro da função o 'this' se referêncie ao 'Main'. Pois dentro de qualquer evento, o this se referência ao próprio elemento ligado ao evento.
         this.$inputTask.onkeypress = self.Events.inputTask_keypress.bind(this)
+
+        this.$removeButtons.forEach(function(button){
+            button.onclick = self.Events.removeButton_click
+        })
     },
 
     // Definição de eventos
@@ -51,7 +56,7 @@ const Main = {
 
             if(!isDone) { // Verificar primeiro a negação
 
-                return li.classList.add('done') // Adicionar o 'return' para que não sejam executados ambos os comandos ao mesmo tempo
+                return li.classList.add('done') // Adicionar o 'return' para que não sejam executados os dois comandos ao mesmo tempo
             }
             li.classList.remove('done')
         },
@@ -72,7 +77,22 @@ const Main = {
                     </li>   
                 `
                 e.target.value = ''
+
+                // Aqui precisamos chamar as funções novamente para carregar as variáveis e os eventos pois ao adicionar a <li> acima, estamos modificando a árvore HTML e todos os elementos são carregados novamente, perdendo assim os eventos j arefeênciados.
+                this.cacheSelectors()
+                this.bindEvents()
             }
+        },
+
+        removeButton_click: function(e){
+            const li = e.target.parentElement
+
+            li.classList.add('removed')
+
+            // Aqui estamos adicionando a função 'hidden' depois de 300ms pois há uma animação acontecendo no css, que dura exatamante 300ms
+            setTimeout(function(){
+                li.classList.add('hidden')
+            },300)
         }
     }
 }
