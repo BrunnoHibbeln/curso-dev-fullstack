@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+    <body>
+        <script>
+            const aluno = {
+                nome: 'Maria',
+                sobrenome: 'da Silva',
+                notas: [7, 10, 8, 5, 7, 9]
+            }
+
+            let soma = 0
+            for(let alunos of aluno.notas){
+                soma += alunos
+            }
+            const media = Math.round(soma / (aluno.notas.length))
+
+            console.log(`A média do aluno(a) ${aluno.nome} foi ${media} para o total de ${aluno.notas.length} bimestres`)
+        </script>
+    </body>
+</html>
