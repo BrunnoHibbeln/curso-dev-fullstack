@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+    <body>
+        <ul id="lista">
+
+        </ul>
+
+        Digite uma nota para filtrar os alunos: 
+        <input id="input" type="text" placeholder="Nota">
+        <button id="button">Filtrar</button>
+        <span id="erro" style="color: red"></span>
+
+        <script>
+            const alunos = [
+                {
+                    nome: 'Maria',
+                    sobrenome: 'da Silva',
+                    nota: 10
+                },
+                {
+                    nome: 'José',
+                    sobrenome: 'Moreira',
+                    nota: 4
+                },
+                {
+                    nome: 'Paulo',
+                    sobrenome: 'Henrique',
+                    nota: 7
+                },
+                {
+                    nome: 'Sara',
+                    sobrenome: 'Souza',
+                    nota: 5
+                },
+                {
+                    nome: 'Clara',
+                    sobrenome: 'Barbosa',
+                    nota: 9
+                },
+                {
+                    nome: 'Rodrigo',
+                    sobrenome: 'Barros',
+                    nota: 4
+                },
+                {
+                    nome: 'Renato',
+                    sobrenome: 'Barros',
+                    nota: 7
+                },
+                {
+                    nome: 'Andrea',
+                    sobrenome: 'Batista',
+                    nota: 6
+                },
+                {
+                    nome: 'Carla',
+                    sobrenome: 'Campos',
+                    nota: 3
+                },
+                {
+                    nome: 'Matheus',
+                    sobrenome: 'da Silva',
+                    nota: 1
+                },
+                
+            ]
+        
+            this.$button = document.querySelector('#button')
+            this.$lista = document.querySelector('#lista')
+            this.$erro = document.querySelector('#erro')
+            const self = this
+
+            $button.onclick = function() {
+                const input = document.querySelector('#input')
+                let html = ''
+                let count = 0
+
+                if(!input.value) {
+                    $erro.innerText = 'Digite uma nota!'
+                } else {
+                    $erro.innerText = ''
+                }
+
+                alunos.forEach(function(aluno){
+                    count++
+
+                    if(aluno.nota === parseInt(input.value)){
+                        html += `<li>${aluno.nome} ${aluno.sobrenome} | Nota: ${aluno.nota}</li>`
+                    }
+                    self.$lista.innerHTML = html
+                    
+                    if(alunos.length === count && html === '') {
+                        self.$lista.innerHTML = '<li>Nenhum aluno tirou essa nota</li>'
+                    }
+                })
+            }
+
+        </script>
+    </body>
+</html>
