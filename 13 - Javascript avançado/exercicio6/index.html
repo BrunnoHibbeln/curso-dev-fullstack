@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+    <header>
+        <style>
+            .hidden {
+                display: none;
+            }
+
+            img {
+                height:20px; 
+                width:20px; 
+            }
+        </style>
+    </header>
+    <body>
+            <input id="input" type="text" placeholder="Digite alguma mensagem">
+            <button id="button">Enviar</button>
+            <div id="container" style="display: inline"></div>
+
+        <script>
+
+            const input = document.querySelector('#input')
+            const container = document.querySelector('#container')
+            const button = document.querySelector('#button')
+            
+            button.onclick = () => {
+
+                container.innerHTML = '<img src="loading.gif">'
+                button.classList.add('hidden')
+                
+                setTimeout(() => {
+                    container.innerHTML = ''
+                    input.classList.add('hidden')
+
+                    container.innerText = `${input.value}`
+                }, 10000)
+
+            }
+
+        </script>
+    </body>
+</html>
