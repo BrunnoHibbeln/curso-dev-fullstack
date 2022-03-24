@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <style>
+
+        div {
+            margin: 10px;
+        }
+
+    </style>
+</header>
+<body>
+
+    <h1>USD for BRL</h1>
+
+    <input id="input" type="text">
+    <button id="button">Calculate</button>
+    <div id="div"></div>
+
+    <script>
+        
+        const button = document.querySelector('#button')
+        const div = document.querySelector('#div')
+
+        button.onclick = () => {
+            let input = document.querySelector('#input').value
+
+            const configs = { 
+            method: 'GET',
+            headers: {}
+            }
+            const data = fetch(`https://free.currconv.com/api/v7/convert?q=USD_BRL&compact=ultra&apiKey=472eb085990bac4ccaa1`, configs)
+                .then(transformInJson)
+                .then(showInScreen)
+                .catch(showError)
+
+            function showInScreen(data){
+
+                const valueConverted = data.USD_BRL * (parseInt(input))
+
+                div.innerHTML += `R$ ${valueConverted.toFixed(2)}`
+            }
+            function showError(){ console.log('Error') }
+            function transformInJson(response){ return response.json() }
+        }
+
+    </script>
+</body>
+</html>
