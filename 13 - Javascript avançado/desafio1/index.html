@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <style>
+        label {
+            display: block;
+            margin: 10px;
+        }
+    </style>
+</header>
+<body>
+    <form id="form">
+        <label>
+            Cep: 
+            <input id="cep" type="text" maxlength="8" onchange="check()">
+        </label>
+        <label>
+            Rua:
+            <input style="width:350px;" id="logradouro" type="text">
+        </label>
+        <label>
+            Bairro:
+            <input style="width:350px;" id="bairro" type="text">
+        </label>
+        <label>
+            Cidade:
+            <input id="localidade" type="text">
+        </label>
+        <label>
+            Estado:
+            <input id="uf" type="text">
+        </label>
+        <label>
+            IBGE:
+            <input id="ibge" type="text">
+        </label>
+    </form>
+
+    <script>
+
+        document.querySelector('#form').reset()
+    
+        function showInScreen(data){
+            
+            document.querySelector('#logradouro').value = data.logradouro
+            $bairro = document.querySelector('#bairro').value = data.bairro
+            $localidade = document.querySelector('#localidade').value = data.localidade
+            $uf = document.querySelector('#uf').value = data.uf
+            $ibge = document.querySelector('#ibge').value = data.ibge
+        }
+        function showError(){
+            console.log('Error')
+        }
+        function transformInJson(response){
+            return response.json()
+        }
+        function check(){
+
+            let $cep = document.querySelector('#cep')
+            let $logradouro = document.querySelector('#logradouro')
+            let $bairro = document.querySelector('#bairro')
+            let $localidade = document.querySelector('#localidade')
+            let $uf = document.querySelector('#uf')
+            let $ibge = document.querySelector('#ibge')
+            const configs = { 
+            method: 'GET',
+            headers: {}
+            }
+
+            if($cep.value.length !== 8){
+                console.log('Digite o cep corretamente')
+            } else {
+                const data = fetch(`http://viacep.com.br/ws/${$cep.value}/json/`, configs)
+                .then(transformInJson)
+                .then(showInScreen)
+                .catch(showError)
+            }
+        }
+
+    </script>
+</body>
+</html>
