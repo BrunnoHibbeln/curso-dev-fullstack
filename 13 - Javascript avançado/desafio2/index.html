@@ -38,7 +38,7 @@
 
                 const valueConverted = data.USD_BRL * (parseInt(input))
 
-                div.innerHTML += `R$ ${valueConverted.toFixed(2)}`
+                div.innerHTML = `R$ ${valueConverted.toFixed(2)}`
             }
             function showError(){ console.log('Error') }
             function transformInJson(response){ return response.json() }
