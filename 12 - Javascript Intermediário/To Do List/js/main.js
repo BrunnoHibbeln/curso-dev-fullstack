@@ -66,7 +66,7 @@ const Main = {
 
     // Retornar a estrutura HTML de cada novo item
     getTaskHtml: function(task, isDone){
-        return `    
+        return `  
             <li class="${isDone ? 'done' : ''}" data-task="${task}">
                 <div class="check"></div>
                 <label class="task">
