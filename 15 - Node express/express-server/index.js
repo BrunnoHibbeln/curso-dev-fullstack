@@ -1,7 +1,6 @@
 
 // 'const express' se torna uma função que retorna uma aplicação em 'express'
 const express = require('express')
-
 const path = require('path')
 
 // Guardamos a aplicação dentro da constânte 'app'
@@ -9,20 +8,26 @@ const app = express()
 
 // O 'MVC (Model View Controller)' basicamente, (Model) é tudo o que vai lidar com o banco de dados, (View) tudo o que lida com a camada de visualização, (Controle) gerenciar e manipular todos os dados.
 
-// Definir arquivos estáticos
+// Definindo o template engine
+app.set('view engine', 'ejs') // Logo após isso, devemos alterar a extensão dos arquivos do diretório 'views' deixando 'index.ejs' para que o template funcione. E como estamos usando um template engine, não precisamos mais fazer a definição dos arquivos estáticos e públicos a seguir, pois o próprio template ja resolve isso.
 
-    // 'path.join' usamos para trazer o nome do diretório e concatenar outro valor
-    app.use(express.static(path.join(__dirname, 'views'))) // Middleware
+                    /* 
+                    Definir arquivos estáticos
 
-// Definir arquivos públicos
+                        'path.join' usamos para trazer o nome do diretório e concatenar outro valor
+                        app.use(express.static(path.join(__dirname, 'views'))) Middleware
 
-    const publicFolder = path.join(__dirname, 'public')
-    const expressPublic = express.static(publicFolder)
-    app.use(expressPublic)
+                    Definir arquivos públicos
+
+                        const publicFolder = path.join(__dirname, 'public')
+                        const expressPublic = express.static(publicFolder)
+                        app.use(expressPublic) 
+
+                    */
 
 // Rotas
 app.get('/', (req, res) => {
-    res.render('views/index')
+    res.render('index') // Aqui também podemos somente deixar o nome do arquivo, sem o diretório
 })
 
 // Quando o usuário digitar uma rota que não existe, será exibido essa mensagem
