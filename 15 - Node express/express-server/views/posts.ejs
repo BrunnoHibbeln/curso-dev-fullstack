@@ -13,7 +13,28 @@
     <%- include('partials/header.ejs')%>
 
     <h1>Posts</h1>
-    <h2>Veja abaixo alguns posts</h2>
+    <div class="posts">
+
+        <!-- Para fazer o loop com ejs, devemos usar o forEach() 
+        
+            <% posts.forEach(() => {
+
+            })%>
+
+            Mas não irá funcionar dessa forma, pois com a quebra de linha, o html não vai reconhecer as tags do ejs, sendo assim devemos fazer dessa forma:
+        -->
+
+        <!-- Loop -->
+        <% posts.forEach((item) => { %>
+
+            <div class="post">
+                <h3><%= item.title %></h3>
+                <p><%= item.text %></p>
+            </div>
+            
+        <% }) %>
+        
+    </div>
 
     <!-- Incluindo footer -->
     <%- include('partials/footer.ejs')%>

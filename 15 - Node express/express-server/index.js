@@ -37,7 +37,21 @@ app.get('/', (req, res) => {
 
 app.get('/posts', (req, res) => {
     res.render('posts', {
-        title: 'Posts'
+        title: 'Posts',
+        posts: [
+            {
+                title: 'Novidade no mundo de tecnologia',
+                text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam in esse unde! Facilis perspiciatis dicta quia veritatis dolorem recusandae commodi! Ut quam id quod et labore deleniti sunt perspiciatis nam.'
+            },
+            {
+                title: 'Criando um servidor com node.js',
+                text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam in esse unde! Facilis perspiciatis dicta quia veritatis dolorem recusandae commodi! Ut quam id quod et labore deleniti sunt perspiciatis nam.'
+            },
+            {
+                title: 'Javascriopt é a linguagem de programação mais usada no mundo',
+                text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam in esse unde! Facilis perspiciatis dicta quia veritatis dolorem recusandae commodi! Ut quam id quod et labore deleniti sunt perspiciatis nam.'
+            }
+        ]
     })
 })
 
