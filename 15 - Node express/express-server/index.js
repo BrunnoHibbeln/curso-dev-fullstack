@@ -28,18 +28,23 @@ app.use(expressPublic)
 
 // Rotas
 app.get('/', (req, res) => {
-    res.render('index') // Aqui também podemos somente deixar o nome do arquivo, sem o diretório
+
+    // Para passar valores para a view através das rotas, devemos passar um segundo parâmetro, que deve ser um objeto.
+    res.render('index', {
+        title: 'Home'
+    }) // O primeiro parâmetro é o arquivo index, que devemos deixar sem especificar o diretório ou extensão
 })
 
 app.get('/posts', (req, res) => {
-    res.render('posts')
+    res.render('posts', {
+        title: 'Posts'
+    })
 })
 
 // Quando o usuário digitar uma rota que não existe, será exibido essa mensagem
 app.use((req, res) => { // 404 error (not found)
     res.send('Página não encontrada')
 })
-
 
 
 // O código acima é chamado de 'middleware' que pode ser executado entre uma requisição e uma execução de rota
