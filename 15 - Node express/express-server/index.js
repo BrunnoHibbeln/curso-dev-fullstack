@@ -41,15 +41,19 @@ app.get('/posts', (req, res) => {
         posts: [
             {
                 title: 'Novidade no mundo de tecnologia',
-                text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam in esse unde! Facilis perspiciatis dicta quia veritatis dolorem recusandae commodi! Ut quam id quod et labore deleniti sunt perspiciatis nam.'
+                text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam in esse unde! Facilis perspiciatis dicta quia veritatis dolorem recusandae commodi! Ut quam id quod et labore deleniti sunt perspiciatis nam.',
+                stars: 3
+
             },
             {
                 title: 'Criando um servidor com node.js',
-                text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam in esse unde! Facilis perspiciatis dicta quia veritatis dolorem recusandae commodi! Ut quam id quod et labore deleniti sunt perspiciatis nam.'
+                text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam in esse unde! Facilis perspiciatis dicta quia veritatis dolorem recusandae commodi! Ut quam id quod et labore deleniti sunt perspiciatis nam.',
+                stars: 1
             },
             {
                 title: 'Javascriopt é a linguagem de programação mais usada no mundo',
-                text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam in esse unde! Facilis perspiciatis dicta quia veritatis dolorem recusandae commodi! Ut quam id quod et labore deleniti sunt perspiciatis nam.'
+                text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam in esse unde! Facilis perspiciatis dicta quia veritatis dolorem recusandae commodi! Ut quam id quod et labore deleniti sunt perspiciatis nam.',
+                stars: 2
             }
         ]
     })
