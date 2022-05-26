@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Incluindo conteúdo do head -->
+    <%- include('partials/head.ejs')%>
+</head>
+<body>
+
+    <!-- Para incluir um outro arquivo .ejs em outro, basta usar a sintaxe abaixo -->
+
+    <!-- Incluindo o header -->
+    <%- include('partials/header.ejs')%>
+
+    <h1>Cadastro de Post</h1>
+
+    <% if(cadastrado) { %> 
+        <p style="color: white; font-size: 20px; margin-bottom: 10px;">Cadastro realizado com sucesso!!</p>
+    <% } %>
+
+    <!-- Para enviar os dados do formulário, devemos colocar a rota que será enviado, e o método, que no caso deve ser o 'POST' já que queremos enviar informações, não receber. -->
+    <form action="/salvar-post" method="post">
+        <div>
+            <label>Título</label>
+            <input name="titulo" type="text" placeholder="Digite o título">
+        </div>
+        <div>
+            <label>Texto</label>
+            <textarea name="texto"></textarea>
+        </div>
+        <div>
+            <button type="submit">Cadastrar</button>
+        </div>
+    </form>
+    
+    <!-- Incluindo footer -->
+    <%- include('partials/footer.ejs')%>
+    
+    <!-- Incluindo os scripts -->
+    <%- include('partials/foot.ejs')%> 
+</body>
+</html>
