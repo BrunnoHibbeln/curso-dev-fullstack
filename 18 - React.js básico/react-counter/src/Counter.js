@@ -1,6 +1,6 @@
 
 // Sempre que tivermos que manipular o estado de um componente, devemos usar o 'useState'. Importamos da seguinte forma:
-import React, { useState } from 'react';// Dessa forma o 'useState' se torna uma método
+import React, { useState, useEffect } from 'react';// Dessa forma o 'useState' se torna uma método
 
 import './Counter.css';
 
@@ -8,6 +8,11 @@ const Counter = () => {
 
   // É muito importante ressaltar que toda vez que mudamos o estado de um elemento, ou seja, chamamos o 'useState'o react irá redenrizar novamente a aplicação.
   const [contador, setContador] = useState(0)
+
+  // No 'useEffect' o primeiro parâmetro é uma função de callback e o segundo é um array de dependências
+  useEffect(() => {
+    console.log('renderizou') // O callback sempre será executado ao carregar o componente pela primeira vez
+  }, [contador]) // Nesse exemplo passamos a variável 'contador' como dependência, assim toda vez que ela for alterada, será executado o callback.
 
   const handleOnClick = (operador) => {
     
