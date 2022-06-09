@@ -24,7 +24,7 @@ app.use('/', routes)
 
 // 404 Error (not found)
 app.use((req, res) => {
-    res.send(alert('Página não encontrada'))
+    res.send(('Página não encontrada'))
 })
 
 // Executando o servidor
