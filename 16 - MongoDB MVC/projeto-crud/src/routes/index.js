@@ -2,21 +2,17 @@ const router = require('express').Router()
 
 // É um padrão sempre definir variáveis de controllers e models com a primeira letra em maiúsculo
 const CustomersController = require('../controllers/customers')
+const IndexController = require('../controllers/index')
 
 // Rotas
-router.get('/', (req, res) => {
-    res.render('index', {
-        title: 'Título teste'
-    })
-})
+router.get('/', IndexController.index)
 
-router.get('/register', (req, res) => {
-    res.render('register', {
-        title: 'Cadastro de clientes'
-    })
-})
+router.get('/register', CustomersController.index)
 
 // Cadastrar novo registro
 router.post('/register/add', CustomersController.add)
+
+// Listar
+router.get('/list', CustomersController.listUsers)
 
 module.exports = router
