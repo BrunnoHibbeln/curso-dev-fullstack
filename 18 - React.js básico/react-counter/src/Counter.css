@@ -10,8 +10,8 @@
     justify-content: center;
     height: 100vh;
     text-align: center;
-    background-color: rgb(63, 63, 63);
-    color: white;
+    background-color: white;
+    color: rgb(63, 63, 63);
 }
 
 .counter span {
@@ -26,8 +26,9 @@
     font-size: 25px;
     border-style: none;
     border-radius: 30px;
-    background-color: rgb(255, 236, 236);
-}
+    background-color: rgb(63, 63, 63);
+    color: white;
+}   
 
 .counter button:hover {
     background-color: rgb(202, 187, 187);
