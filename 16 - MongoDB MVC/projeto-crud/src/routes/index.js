@@ -21,4 +21,7 @@ router.get('/edit', CustomersController.formEdit) // Recebe os dados para serem 
 // Como vamos enviar os dados passando um 'id' pelo '/', devemos informar o envio desse parâmetro '/edit/:id'
 router.post('/edit/:id', CustomersController.edit) // Altera os dados no banco
 
+// Remover
+router.get('/remove/:id', CustomersController.remove)
+
 module.exports = router

@@ -82,10 +82,22 @@ async function edit(req, res) {
     })
 }
 
+async function remove(req, res) {
+    const { id } = req.params
+    const remove = await CustomersModel.deleteOne({_id: id})
+
+    /* Esse método retorna um objeto com parâmetro 'ok' que terá o valor '0' caso dê erro, ou valor '1' caso a operação seja feita */
+
+    if (remove.ok) {
+        res.redirect('/list')
+    }
+}
+
 module.exports = {
     index,
     add,
     list,
     formEdit,
-    edit
+    edit,
+    remove
 }
