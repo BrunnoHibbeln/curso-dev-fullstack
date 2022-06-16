@@ -1,29 +1,33 @@
 import React, { useState, useEffect } from 'react'
 
+import Template from './Template'
+import Loading from './Loading'
+
 const Users = () => {
 
-    const [loading, setLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     const [users, setUsers] = useState([])
 
     useEffect(() => {
+
+        setIsLoading(true)
+
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
             .then(data => {
                 setUsers(data)
-                setLoading(false)
+                setIsLoading(false)
             })
     }, [])
 
     return (
-        <>
-            <h1>Users</h1>
-
-            { loading === true ? 'Carregando...' : ''}
+        <Template title="Usuários">
+            <Loading visible={isLoading} />
 
             {
                 users.map(user => {
                     return (
-                    /* Para colocarmos sytle inline, devemos abrir a interpolação e passar um objeto */
+                    /* Para colocarmos sytle inline, devemos abrir a interpolação e passar um objeto*/
                         <div style={{margin: '20px 10px'}}>
                             <b>Nome: </b> {user.name} <br />
                             <b>Email: </b> {user.email} <br />
@@ -34,7 +38,7 @@ const Users = () => {
                     )
                 })
             }
-        </>
+        </Template>
     )
 }
 

@@ -2,6 +2,7 @@
 // Sempre que tivermos que manipular o estado de um componente, devemos usar o 'useState'. Importamos da seguinte forma:
 import React, { useState, useEffect } from 'react';// Dessa forma o 'useState' se torna uma método
 
+import Template from './Template'
 import './Counter.css';
 
 const Counter = () => {
@@ -25,11 +26,13 @@ const Counter = () => {
   }
 
   return (
-    <div className="counter">
-        <span>{contador}</span>
-        <button onClick={() => handleOnClick('-')}>-</button>
-        <button onClick={() => handleOnClick('+')}>+</button>
-    </div>
+    <Template title="Contador">
+      <div className="counter">
+          <span>{contador}</span>
+          <button onClick={() => handleOnClick('-')}>-</button>
+          <button onClick={() => handleOnClick('+')}>+</button>
+      </div>
+    </Template>
   );
 }
 

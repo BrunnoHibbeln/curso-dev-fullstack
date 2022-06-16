@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from 'react'
 
+import Template from './Template'
+import Loading from './Loading'
+
 const Albums = () => {
 
-    const [loading, setLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     const [albums, setAlbums] = useState([])
 
     useEffect(() => {
 
-        setLoading(true)
+        setIsLoading(true)
 
         fetch('https://jsonplaceholder.typicode.com/albums')
             .then(response => response.json())
             .then(data => {
                 setAlbums(data)
-                setLoading(false)
+                setIsLoading(false)
             })
     },[])
 
     return (
-        <>
-            <h1>Albums</h1>
-
-            { loading === true ? 'Carregando...' : ''}
+        <Template title='Álbuns'>            
+            <Loading visible={isLoading} />
 
             {
                 albums.map(album => {
@@ -32,7 +33,7 @@ const Albums = () => {
                     )
                 })
             }
-        </>
+        </Template>
     )
 }
 
