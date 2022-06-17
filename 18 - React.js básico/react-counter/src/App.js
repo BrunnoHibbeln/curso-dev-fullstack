@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import Template from './Template'
 import Albums from './Albums'
 import Counter from './Counter'
 import Users from './Users'
@@ -7,43 +8,39 @@ import Users from './Users'
 const defaultPage = 'albums'
 
 const pages = {
-  albums: {
-    text: 'Albums',
-    component: Albums
-  },
-  counter: {
-    text: 'Counter',
-    component: Counter
-  },
-  Users: {
-    text: 'Users',
-    component: Users
-  }
+	albums: {
+		text: 'Albums',
+		component: Albums
+	},
+	counter: {
+		text: 'Counter',
+		component: Counter
+	},
+	Users: {
+		text: 'Users',
+		component: Users
+	}
 }
 
 function App() {
 
-  const [page, setPage] = useState(defaultPage)
+	const [page, setPage] = useState(defaultPage)
 
-  const handleChangePage = (page) => {
-    setPage(page)
-  }
+	const handleChangePage = (page) => {
+		setPage(page)
+	}
 
-  // 'Page'irá receber o componente
-  const Page = pages[page].component
+	// 'Page'irá receber o componente
+	const Page = pages[page].component
 
-  const pageNames = Object.keys(pages)
-
-  return (
-    <>
-      {
-        pageNames.map(page => <button onClick={() => handleChangePage(page)}>{pages[page].text}</button>)
-      }
-
-      {/* Renderizar o componente somente se ele existir */}
-      {Page && <Page /> } {/* Se a instrução der 'true' então o 'Page' é renderizado, se der 'false' não renderiza */}
-    </>
-  );
+	return (
+		<Template pages={pages} activePage={page} onChangePage={handleChangePage}>
+			{/* 
+				Renderizar o componente somente se ele existir. Se a instrução der 'true' então o 'Page' é renderizado, se der 'false' não renderiza.
+			*/}
+			{Page && <Page />}
+		</Template>
+	);
 }
 
 export default App;
