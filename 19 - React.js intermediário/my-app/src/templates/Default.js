@@ -7,8 +7,6 @@ const useStyles = makeStyles(() => ({
    container: {
       padding: '15px 0',
       textAlign: 'center',
-      backgroundColor: '#ff6f00',
-      color: 'white'
    }
 }))
 

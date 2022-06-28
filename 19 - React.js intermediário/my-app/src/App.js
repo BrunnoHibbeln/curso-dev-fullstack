@@ -6,6 +6,7 @@ import {
 
 import TemplateDefault from './templates/Default'
 
+import Customers from './pages/Customers'
 import Home from './pages/Home'
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
 
 		<Router>
 			<Routes>
+				<Route path="/customers" element={ <Customers /> } />
 				<Route path="/" element={ <Home /> } />
 			</Routes>
 		</Router>
