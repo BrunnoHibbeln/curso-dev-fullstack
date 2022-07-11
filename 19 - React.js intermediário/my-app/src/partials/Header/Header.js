@@ -16,6 +16,7 @@ import { useNavigate } from 'react-router-dom'
 // Para importar 'icons' não é possível utilizar desestruturação
 import MenuIcon from '@material-ui/icons/Menu'
 import HomeIcon from '@material-ui/icons/Home'
+import Person from '@material-ui/icons/Person'
 import PersonAdd from '@material-ui/icons/PersonAdd'
 import useStyles from './Header.style'
 
@@ -57,8 +58,12 @@ const Header = () => {
 					<ListItemText>Home</ListItemText>
 				</ListItem>
 				<ListItem button onClick={ () => handleMenuClick('/customers') }>
-					<ListItemIcon> <PersonAdd /> </ListItemIcon>
+					<ListItemIcon> <Person /> </ListItemIcon>
 					<ListItemText>Customers</ListItemText>
+				</ListItem>
+				<ListItem button onClick={ () => handleMenuClick('/customers/add') }>
+					<ListItemIcon> <PersonAdd /> </ListItemIcon>
+					<ListItemText>Customers add</ListItemText>
 				</ListItem>
 			</Drawer>
 		</>	
