@@ -22,11 +22,13 @@ const useStyles = makeStyles(() => ({
 }))
 
 const CustomerCard = ({
+	id,
 	name,
 	lastname,
 	email,
 	avatar,
 	className,
+	onRemoveCustomer,
 }) => {
 	const classes = useStyles()
 	const [openModal, setOpenModal] = useState(false)
@@ -34,8 +36,9 @@ const CustomerCard = ({
 	const handleToggleOpenModal = () => {
 		setOpenModal(!openModal)
 	}
-	const handleConfirmModal = () => {
-		alert('ok')
+	const handleConfirmModal = id => {
+		onRemoveCustomer(id)
+		handleToggleOpenModal()
 	}
 	const handleRemoveCustomer = () => {
 		handleToggleOpenModal()
@@ -65,7 +68,7 @@ const CustomerCard = ({
 			<ModalConfirm
 				open={ openModal }
 				onClose={ handleToggleOpenModal }
-				onConfirm={ handleConfirmModal }
+				onConfirm={ () => handleConfirmModal(id) }
 				title="Do you really want to delete?"
 				message="Once confirmed, it will not be possible to revert."
 			/>

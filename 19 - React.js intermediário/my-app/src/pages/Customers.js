@@ -21,12 +21,23 @@ const Customers = () => {
 
    useEffect(() => {
       axios.get('https://reqres.in/api/users')
-      .then(response => {
-         const { data } = response.data
+         .then(response => {
+            const { data } = response.data
 
-         setCustomers(data)
-      })
+            setCustomers(data)
+         })
    }, [])
+
+   const handleRemoveCustomer = id => {
+      axios.delete(`https://reqres.in/api/users/${id}`)
+         .then(() => {
+
+            // Usamos o filter para adicionar todos os 'customers' que não tem o id em questão
+            const newCustomersState = customers.filter(customer => customer.id !== id)
+            // E atribuimos novamente ao 'customers'
+            setCustomers(newCustomersState)
+         })
+   }
 
    return (
       <>
@@ -43,12 +54,14 @@ const Customers = () => {
 
                customers.map(item => (
                   <Grid item xs={12} sm={6} md={4} >
-                     <CustomersCard 
+                     <CustomersCard
+                     id={item.id}
                         name={item.first_name}
                         lastname={item.last_name}
                         email={item.email}
                         avatar={item.avatar}
                         className={classes.card}
+                        onRemoveCustomer={handleRemoveCustomer}
                      />
                   </Grid>
                ))
