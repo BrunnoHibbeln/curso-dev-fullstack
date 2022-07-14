@@ -1,10 +1,14 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { makeStyles } from '@material-ui/core/styles'
+import CircularProgress from '@material-ui/core/CircularProgress'
+
 import {
-   makeStyles,
    TextField,
    Button,
 } from '@material-ui/core'
+
+import Toasty from '../../components/Toasty'
 
 const useStyles = makeStyles((theme) => ({
    wrapper: {
@@ -25,6 +29,12 @@ const Register = () => {
          error: false,
       },
    })
+   const [openToasty, setOpenToasty] = useState({
+      open: false,
+      text: "",
+      severity: "",
+   })
+   const [isLoading, setLoading] = useState(false)
 
    const handleInputChange = (e) => {
       const { name, value } = e.target
@@ -65,12 +75,29 @@ const Register = () => {
          return setForm(newFormState)
       }
 
+      setLoading(true)
+
       axios.post('https://reqres.in/api/users', {
          name: form.name.value,
          job: form.job.value,
-      }).then(response => {
-         console.log('ok', response)
       })
+         .then(response => {
+            console.log('ok', response)
+            setLoading(false)
+            setOpenToasty({
+               open: true,
+               text: "Registration successful!",
+               severity: "success",
+            })
+         })
+         .catch(() => {
+            setLoading(false)
+            setOpenToasty({
+               open: true,
+               text: "Error",
+               severity: "error",
+            })
+         })
    }
    
    return (
@@ -98,10 +125,23 @@ const Register = () => {
             />
          </div>
          <div className={ classes.wrapper }>
-            <Button variant="contained" color="primary" onClick={handleRegisterButton}>
-               Confirm
+            <Button 
+               variant="contained" 
+               color="primary" 
+               onClick={handleRegisterButton}
+               disabled={isLoading}
+            >
+               {
+                  isLoading ? <CircularProgress /> : 'Register'
+               }
             </Button>
          </div>
+         <Toasty 
+            open={ openToasty.open } 
+            severity={ openToasty.severity } 
+            text={ openToasty.text }
+            onClose={() =>  setOpenToasty(false)}
+         />
       </>
    )
 }
