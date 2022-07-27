@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+
+import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 
 import CustomersCard from '../../components/CustomerCard'
@@ -17,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
 const List = () => {
 
    const classes = useStyles()
+   const navigate = useNavigate()
+
    const [customers, setCustomers] = useState([])
 
    useEffect(() => {
@@ -37,6 +41,10 @@ const List = () => {
             // E atribuimos novamente ao 'customers'
             setCustomers(newCustomersState)
          })
+   }
+
+   const handleEditCustomer = id => {
+      navigate(`/customers/edit/${id}`)
    }
 
    return (
@@ -62,6 +70,7 @@ const List = () => {
                         avatar={item.avatar}
                         className={classes.card}
                         onRemoveCustomer={handleRemoveCustomer}
+                        onEditCustomer={handleEditCustomer}
                      />
                   </Grid>
                ))
