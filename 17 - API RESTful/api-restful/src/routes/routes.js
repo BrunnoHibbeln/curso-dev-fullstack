@@ -10,7 +10,7 @@ const ProductController = require('../controllers/products')
 
 // Ao fazer o request, queremos que funcione da seguinte forma: se queremos os dados de um unico usuario, passamos o id como parametro, se nao passarmos o id o request ira retornar todos os dados. Sendo assim, devemos adicionar o "?" no final para que o "express" entenda que esse parametro e opcional.
 router.get('/products/:id?', ProductController.get)
-//router.post('/products', ProductController.post)
+router.post('/products', ProductController.post)
 //router.put('/products/:id', ProductController.put)
 //router.delete('/products/:id', ProductController.delete)
 
