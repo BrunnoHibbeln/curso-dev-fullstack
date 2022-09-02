@@ -8,14 +8,88 @@
 </head>
 <body>
 
+   <h2>Cadastro de produtos</h2>
+   <form id="form">
+      <div>
+         <label>Nome</label>
+         <input type="text" name="name">
+      </div>
+      <div>
+         <label>Marca</label>
+         <input type="text" name="brand">
+      </div>
+      <div>
+         <label>Preco</label>
+         <input type="text" name="price">
+      </div>
+      <button type="submit">Cadastrar</button>
+   </form>
+
+   <hr>
+
+   <h2>Listagem de produtos</h2>
+   <ul id="products-list"></ul>
+   
    <script>
-      fetch('http://localhost:8080/api/products')
-         .then(response => {
-            response.json()
-               .then(data => {
-                  console.log(data)
-               })
+      const API_URL = 'http://localhost:8080/api/products'
+
+      const form = document.querySelector('#form')
+      const productsList = document.querySelector('#products-list')
+
+      // OBTEM A LISTA DE PRODUTOS
+      function obterLista() {
+         fetch(API_URL).then(response => {
+            response.json().then(data => {
+               
+               const productsHtml = data.map(product => `
+               <li>
+                  ${product.name} ${product.brand} <br> R$${product.price}
+                  </li>
+                  `).join('') // Colocamos o join para unir todos os itens
+
+               productsList.innerHTML = productsHtml
+            })
          })
+      }
+
+      obterLista()
+   
+      // AO CADASTRAR UM PRODUTO
+      form.onsubmit = function(e) {
+         // Para previnir que o form por padrao submeta o formulario
+         e.preventDefault()
+
+         const name = document.forms['form'].name.value
+         const brand = document.forms['form'].brand.value
+         const price = document.forms['form'].price.value
+
+         fetch(API_URL, {
+            method: 'POST',
+
+            // Precisamos especificar que a informacao que sera passada, sera em formato json
+            headers: {
+               'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+               name,
+               brand,
+               price,
+            })
+         }).then(response => {
+            response.json().then(data => {
+               if (data.message === 'success') {
+                  alert('Cadastro realizado com sucesso!')
+
+                  // Limpamos os inputs
+                  form.reset()
+                  // Obter os dados atualizados
+                  obterLista()
+               } else {
+                  alert('Ocorreu um erro, tente novamente!')
+               }
+            })
+         })
+      }
    </script>
    
 </body>
