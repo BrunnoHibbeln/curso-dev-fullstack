@@ -5,6 +5,11 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
+   <style>
+      .hidden {
+         display: none;
+      }
+   </style>
 </head>
 <body>
 
@@ -25,6 +30,27 @@
       <button type="submit">Cadastrar</button>
    </form>
 
+   <div id="edit" class="hidden">
+      <hr>
+      <h2>Alterar produto</h2>
+      <form id="formEdit">
+         <input type="hidden" name="id">
+         <div>
+            <label>Nome</label>
+            <input type="text" name="name">
+         </div>
+         <div>
+            <label>Marca</label>
+            <input type="text" name="brand">
+         </div>
+         <div>
+            <label>Preco</label>
+            <input type="text" name="price">
+         </div>
+         <button type="submit">Alterar</button>
+      </form>
+   </div>
+
    <hr>
 
    <h2>Listagem de produtos</h2>
@@ -33,8 +59,56 @@
    <script>
       const API_URL = 'http://localhost:8080/api/products'
 
+      const edit = document.querySelector('#edit')
       const form = document.querySelector('#form')
+      const formEdit = document.querySelector('#formEdit')
       const productsList = document.querySelector('#products-list')
+
+      // ADICIONA EVENTO DE CLICK NO BOTAO EXCLUIR
+      function adicionaEventoBotaoExcluir() {
+         const botoesExcluir = document.querySelectorAll('.botao-excluir')
+         botoesExcluir.forEach(botao => {
+            botao.onclick = function(e) {
+               e.preventDefault()
+               const id = this.dataset.id
+               
+               fetch(`${API_URL}/${id}`, {
+                  method: 'DELETE',
+               }).then(response => {
+                  response.json().then(data => {
+                     if (data.message === 'success') {
+                        obterLista()
+                        alert('Produto excluido com sucesso!') 
+                     } else {
+                        alert('Ocorreu um erro, tente')
+                     }
+                  })
+               })
+            }
+         })
+      }
+
+      // ADICIONA EVENTO DE CLICK NO BOTAO EDITAR
+      function adicionaEventoBotaoEditar() {
+         const botoesEditar = document.querySelectorAll('.botao-editar')
+         botoesEditar.forEach(botao => {
+            botao.onclick = function(e) {
+               e.preventDefault()
+               
+               edit.classList.remove('hidden')
+
+               const id = this.dataset.id
+               const name = this.dataset.name
+               const brand = this.dataset.brand
+               const price = this.dataset.price
+
+               document.forms['formEdit'].id.value = id
+               document.forms['formEdit'].name.value = name
+               document.forms['formEdit'].brand.value = brand
+               document.forms['formEdit'].price.value = price
+            }
+         })
+      }
 
       // OBTEM A LISTA DE PRODUTOS
       function obterLista() {
@@ -42,35 +116,33 @@
             response.json().then(data => {
                
                const productsHtml = data.map(product => `
-               <li>
-                  ${product.name} ${product.brand} -- R$${product.price}
-                  <a href="#" class="botao-excluir" data-id="${product._id}">[excluir]</a> <br>
+                  <li>
+                     ${product.name} ${product.brand} -- R$${product.price}
+                     <a 
+                        href="#" 
+                        class="botao-editar" 
+                        data-id="${product._id}"
+                        data-id="${product._name}"
+                        data-id="${product.brand}"
+                        data-id="${product.price}"
+                     >
+                        [editar]
+                     </a>
+                     <a 
+                        href="#" 
+                        class="botao-excluir" 
+                        data-id="${product._id}"
+                     >
+                        [excluir]
+                     </a>
+                     <br>
                   </li>
-                  `).join('') // Colocamos o join para unir todos os itens
+               `).join('') // Colocamos o join para unir todos os itens
 
                productsList.innerHTML = productsHtml
 
-               const botoesExcluir = document.querySelectorAll('.botao-excluir')
-               botoesExcluir.forEach(botao => {
-                  botao.onclick = function(e) {
-                     e.preventDefault()
-
-                     const id = this.dataset.id
-
-                     fetch(`${API_URL}/${id}`, {
-                        method: 'DELETE',
-                     }).then(response => {
-                        response.json().then(data => {
-                           if (data.message === 'success') {
-                              obterLista()
-                              alert('Produto excluido com sucesso!') 
-                           } else {
-                              alert('Ocorreu um erro, tente')
-                           }
-                        })
-                     })
-                  }
-               })
+               adicionaEventoBotaoExcluir()
+               adicionaEventoBotaoEditar()
             })
          })
       }
@@ -113,8 +185,39 @@
             })
          })
       }
-   
-      
+
+      // AO EDITAR UM PRODUTO
+      formEdit.onsubmit = function(e) {
+         e.preventDefault()
+
+         const id = document.forms['formEdit'].id.value
+         const name = document.forms['formEdit'].name.value
+         const brand = document.forms['formEdit'].brand.value
+         const price = document.forms['formEdit'].price.value
+         
+         fetch(`${API_URL}/${id}`, {
+            method: 'PUT',
+            headers: {
+               'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+               name,
+               brand,
+               price,
+            })
+         }).then(response => {
+            response.json().then(data => {
+               if (data.message === 'success') {
+                  formEdit.reset()
+                  edit.classList.add('hidden')
+                  obterLista()
+                  alert('Produto alterado com sucesso!') 
+               } else {
+                  alert('Ocorreu um erro, tente')
+               }
+            })
+         })
+      }
    </script>
    
 </body>
