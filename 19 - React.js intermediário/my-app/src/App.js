@@ -2,6 +2,7 @@ import {
 	BrowserRouter as Router,
 	Routes,
 	Route,
+	Navigate,
 } from 'react-router-dom'
 
 import TemplateDefault from './templates/Default'
@@ -15,14 +16,15 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 
 const App = () => {
+
 	return (
 		<Router>
 			<TemplateDefault>
 				<Routes>
-					<Route
+					<Route 
 						path="/"
 						element={
-							<TemplatePage 
+							<TemplatePage
 								title="Inicial page" 
 								Component={Home}
 							/>
@@ -50,8 +52,8 @@ const App = () => {
 						path="/customers/edit/:id"
 						element={
 							<TemplatePage 
-								title="Customers edit" 
-								Component={CustomersEdit}
+							title="Customers edit" 
+							Component={CustomersEdit}
 							/>
 						}
 					/>

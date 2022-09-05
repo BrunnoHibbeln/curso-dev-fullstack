@@ -1,12 +1,14 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 import { 
    Button,
    TextField, 
    Typography,
+   makeStyles,
 } from "@material-ui/core"
 
-import { makeStyles } from "@material-ui/core"
+import useAuth from '../state/auth'
 
 const useStyles = makeStyles((theme) => ({
    wrapper: {
@@ -14,14 +16,16 @@ const useStyles = makeStyles((theme) => ({
    }
 }))
 
-
 const Login = () => {
    const classes = useStyles()
+   let navigate = useNavigate()
 
    const [form, setForm] = useState({
       email: '',
       password: '',
    })
+   const [isLoading, setIsLoading] = useState(false)
+   const [user, setUser] = useAuth()
 
    const handleInputChange = e => {
       const { name, value } = e.target
@@ -31,9 +35,18 @@ const Login = () => {
          [name]: value,
       })
    }
-
    const handleFormSubmit = () => {
-      console.log(form)
+      setIsLoading(true)
+
+      setTimeout(() => {
+         
+         setUser({
+            logged: true,
+            email: form.email,
+         }) 
+
+         navigate('/')
+      }, 4000)
    }
 
    return (
@@ -54,7 +67,7 @@ const Login = () => {
                onChange={handleInputChange}
                label="Type your password"
                name="password"
-               type='password'
+               type="password"
             /> 
          </div>
          <div>
@@ -63,7 +76,9 @@ const Login = () => {
                color="primary"
                onClick={handleFormSubmit}
             >
-               Entry
+               {
+                  isLoading ? 'Wait...' : 'Entry'
+               }
             </Button>
          </div>
       </>

@@ -20,7 +20,7 @@ import Person from '@material-ui/icons/Person'
 import PersonAdd from '@material-ui/icons/PersonAdd'
 import useStyles from './Header.style'
 
-const Header = () => {
+const Header = ({ user }) => {
 	const classes = useStyles()
 	let navigate = useNavigate()
 
@@ -30,7 +30,6 @@ const Header = () => {
 		// inverte o valor do 'menuOpen'
 		setMenuOpen(!menuOpen)
 	}
-
 	const handleMenuClick = route => {
 		// atribui a rota
 		navigate(route)
@@ -48,7 +47,14 @@ const Header = () => {
 				<Typography variant="h6" className={classes.title}>
 					My app
 				</Typography>
-					<Button color="inherit">Login</Button>
+					{
+						user.logged
+						?	<Typography variant="h5">
+								{ user.email }
+							</Typography>
+
+						:	<Button color="inherit">Login</Button>
+					}
 				</Toolbar>
 			</AppBar>
 
